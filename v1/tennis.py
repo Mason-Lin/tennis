@@ -8,7 +8,6 @@ class TennisGame(object):
     def firstPlayerScore(self, score):
         self._firstPlayerScore = score
 
-
     @property
     def secondPlayerScore(self):
         return self._secondPlayerScore
@@ -17,18 +16,20 @@ class TennisGame(object):
     def secondPlayerScore(self, score):
         self._secondPlayerScore = score
 
-
-
     def __init__(self):
         super().__init__()
         self.firstPlayerScore = 0
+        self.secondPlayerScore = 0
 
     def Score(self):
         score_lookup = {
-            "1": "Fifteen Love",
-            "2": "Thirty Love",
-            "3": "Forty Love"
+            "1": "Fifteen",
+            "2": "Thirty",
+            "3": "Forty"
         }
         if self.firstPlayerScore:
-            return score_lookup[str(self.firstPlayerScore)]
-        return "Love All"
+            return score_lookup[str(self.firstPlayerScore)] + " Love"
+        elif self.secondPlayerScore:
+            return "Love " + score_lookup[str(self.secondPlayerScore)]
+        else:
+            return "Love All"
