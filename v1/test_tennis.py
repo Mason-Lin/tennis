@@ -56,11 +56,14 @@ def test_thirty_love():
     assert game.Score() == "Thirty All"
 
 
-def test_deuce():
+def test_deuce_when_3_3():
     game = TennisGame()
     game.firstPlayerScore = 3
     game.secondPlayerScore = 3
     assert game.Score() == "Deuce"
 
-# 3-3 Deuce
-# 4-4 Deuce
+def test_deuce_when_4_4():
+    game = TennisGame()
+    game.firstPlayerScore = 4
+    game.secondPlayerScore = 4
+    assert game.Score() == "Deuce"
