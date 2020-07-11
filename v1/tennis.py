@@ -54,6 +54,8 @@ class TennisGame(object):
         if self.firstPlayerScore or self.secondPlayerScore:
             if sorted((self.firstPlayerScore, self.secondPlayerScore)) == sorted((3, 4)):
                 return f"{self.firstPlayerName} Adv" if self.firstPlayerScore > self.secondPlayerScore else f"{self.secondPlayerName} Adv"
+            elif sorted((self.firstPlayerScore, self.secondPlayerScore)) == sorted((3, 5)):
+                return f"{self.firstPlayerName} Win" if self.firstPlayerScore > self.secondPlayerScore else f"{self.secondPlayerName} Win"
             else:
                 return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
 
