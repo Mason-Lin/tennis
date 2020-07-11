@@ -1,3 +1,3 @@
 class TennisGame(object):
     def Score(self):
-        raise NotImplementedError
+        return "Love All"
