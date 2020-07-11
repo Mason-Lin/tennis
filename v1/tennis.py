@@ -8,6 +8,17 @@ class TennisGame(object):
     def firstPlayerScore(self, score):
         self._firstPlayerScore = score
 
+
+    @property
+    def secondPlayerScore(self):
+        return self._secondPlayerScore
+
+    @secondPlayerScore.setter
+    def secondPlayerScore(self, score):
+        self._secondPlayerScore = score
+
+
+
     def __init__(self):
         super().__init__()
         self.firstPlayerScore = 0

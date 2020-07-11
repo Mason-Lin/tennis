@@ -26,3 +26,11 @@ def test_forty_love():
     game.firstPlayerScore = 3
     score = game.Score()
     assert score == "Forty Love"
+
+
+
+def test_love_fifteen():
+    game = TennisGame()
+    game.secondPlayerScore = 1
+    score = game.Score()
+    assert score == "Love Fifteen"
