@@ -46,8 +46,14 @@ def test_fifteen_love():
     game = TennisGame()
     game.firstPlayerScore = 1
     game.secondPlayerScore = 1
-    assert game.Score() == "Fifteen Love"
+    assert game.Score() == "Fifteen All"
 
+
+# def test_fifteen_love():
+#     game = TennisGame()
+#     game.firstPlayerScore = 1
+#     game.secondPlayerScore = 1
+#     assert game.Score() == "Fifteen Love"
 
 
 # 0-0 Love-All
