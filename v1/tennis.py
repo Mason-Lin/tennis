@@ -23,13 +23,12 @@ class TennisGame(object):
 
     def Score(self):
         score_lookup = {
+            "0": "Love",
             "1": "Fifteen",
             "2": "Thirty",
             "3": "Forty"
         }
-        if self.firstPlayerScore:
-            return score_lookup[str(self.firstPlayerScore)] + " Love"
-        elif self.secondPlayerScore:
-            return "Love " + score_lookup[str(self.secondPlayerScore)]
+        if self.firstPlayerScore or self.secondPlayerScore:
+            return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
         else:
             return "Love All"
