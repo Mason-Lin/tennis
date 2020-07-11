@@ -39,7 +39,6 @@ class TennisGame(object):
         self.firstPlayerName = "Mason"
         self.secondPlayerName = "Rina"
 
-
     def Score(self):
         score_lookup = {
             "0": "Love",
@@ -51,13 +50,23 @@ class TennisGame(object):
         if self.is_same_score():
             return "Deuce" if self.firstPlayerScore > 2 else f"{score_lookup[str(self.firstPlayerScore)]} All"
 
-        if self.firstPlayerScore or self.secondPlayerScore:
-            if sorted((self.firstPlayerScore, self.secondPlayerScore)) == sorted((3, 4)):
-                return f"{self.firstPlayerName} Adv" if self.firstPlayerScore > self.secondPlayerScore else f"{self.secondPlayerName} Adv"
-            elif sorted((self.firstPlayerScore, self.secondPlayerScore)) == sorted((3, 5)):
-                return f"{self.firstPlayerName} Win" if self.firstPlayerScore > self.secondPlayerScore else f"{self.secondPlayerName} Win"
-            else:
-                return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
+        if self.one_of_player_is_zero():
+            return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
+
+        if self.is_adv_state():
+            return f"{self.get_winner()} {self.get_state()}"
+
+    def one_of_player_is_zero(self):
+        return self.firstPlayerScore == 0 or self.secondPlayerScore == 0
+
+    def get_winner(self):
+        return self.firstPlayerName if self.firstPlayerScore > self.secondPlayerScore else self.secondPlayerName
+
+    def get_state(self):
+        return "Adv" if max(self.firstPlayerScore, self.secondPlayerScore) == 4 else "Win"
+
+    def is_adv_state(self):
+        return sorted((self.firstPlayerScore, self.secondPlayerScore)) in [sorted((3, 4)), sorted((3, 5))]
 
     def is_same_score(self):
         return self.firstPlayerScore == self.secondPlayerScore
