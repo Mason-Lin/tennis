@@ -54,3 +54,13 @@ def test_thirty_love():
     game.firstPlayerScore = 2
     game.secondPlayerScore = 2
     assert game.Score() == "Thirty All"
+
+
+def test_deuce():
+    game = TennisGame()
+    game.firstPlayerScore = 3
+    game.secondPlayerScore = 3
+    assert game.Score() == "Deuce"
+
+# 3-3 Deuce
+# 4-4 Deuce
