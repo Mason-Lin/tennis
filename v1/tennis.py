@@ -48,14 +48,14 @@ class TennisGame(object):
             "3": "Forty"
         }
 
+        if self.is_same_score():
+            return "Deuce" if self.firstPlayerScore > 2 else f"{score_lookup[str(self.firstPlayerScore)]} All"
+
         if self.firstPlayerScore or self.secondPlayerScore:
-            if self.firstPlayerScore == self.secondPlayerScore:
-                if self.firstPlayerScore > 2:
-                    return "Deuce"
-                else:
-                    return f"{score_lookup[str(self.firstPlayerScore)]} All"
-            elif sorted((self.firstPlayerScore, self.secondPlayerScore)) == sorted((3, 4)):
+            if sorted((self.firstPlayerScore, self.secondPlayerScore)) == sorted((3, 4)):
                 return f"{self.firstPlayerName} Adv" if self.firstPlayerScore > self.secondPlayerScore else f"{self.secondPlayerName} Adv"
-            return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
-        else:
-            return "Love All"
+            else:
+                return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
+
+    def is_same_score(self):
+        return self.firstPlayerScore == self.secondPlayerScore
