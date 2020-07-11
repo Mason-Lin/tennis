@@ -62,8 +62,16 @@ def test_deuce_when_3_3():
     game.secondPlayerScore = 3
     assert game.Score() == "Deuce"
 
+
 def test_deuce_when_4_4():
     game = TennisGame()
     game.firstPlayerScore = 4
     game.secondPlayerScore = 4
     assert game.Score() == "Deuce"
+
+
+def test_first_player_adv():
+    game = TennisGame()
+    game.firstPlayerScore = 4
+    game.secondPlayerScore = 3
+    assert game.Score() == "Mason Adv"
