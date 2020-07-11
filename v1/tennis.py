@@ -2,10 +2,13 @@ class TennisGame(object):
     _firstPlayerScoreTimes = 0
 
     def Score(self):
-        if self._firstPlayerScoreTimes == 1:
-            return "Fifteen Love"
-        elif self._firstPlayerScoreTimes == 2:
-            return "Thirty Love"
+        score_lookup = {
+            "1": "Fifteen Love",
+            "2": "Thirty Love",
+            "3": "Forty Love"
+        }
+        if self._firstPlayerScoreTimes:
+            return score_lookup[str(self._firstPlayerScoreTimes)]
         return "Love All"
 
     def FirstPlayerScore(self):
