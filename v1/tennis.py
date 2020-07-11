@@ -54,8 +54,8 @@ class TennisGame(object):
                     return "Deuce"
                 else:
                     return f"{score_lookup[str(self.firstPlayerScore)]} All"
-            elif (self.firstPlayerScore, self.secondPlayerScore) == (4, 3):
-                return f"{self.firstPlayerName} Adv"
+            elif sorted((self.firstPlayerScore, self.secondPlayerScore)) == sorted((3, 4)):
+                return f"{self.firstPlayerName} Adv" if self.firstPlayerScore > self.secondPlayerScore else f"{self.secondPlayerName} Adv"
             return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
         else:
             return "Love All"
