@@ -90,3 +90,9 @@ def test_second_player_adv():
     game.secondPlayerScore = 4
     assert game.Score() == "Rina Adv"
 
+
+def test_second_player_win():
+    game = TennisGame()
+    game.firstPlayerScore = 3
+    game.secondPlayerScore = 5
+    assert game.Score() == "Rina Win"
