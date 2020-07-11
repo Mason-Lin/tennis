@@ -1,11 +1,6 @@
 from .tennis import TennisGame
 
 
-def test_Love_All():
-    game = TennisGame()
-    assert game.Score() == "Love All"
-
-
 def test_fifteen_love():
     game = TennisGame()
     game.firstPlayerScore = 1
@@ -42,6 +37,11 @@ def test_love_forty():
     assert game.Score() == "Love Forty"
 
 
+def test_Love_All():
+    game = TennisGame()
+    assert game.Score() == "Love All"
+
+
 def test_fifteen_love():
     game = TennisGame()
     game.firstPlayerScore = 1
@@ -49,13 +49,8 @@ def test_fifteen_love():
     assert game.Score() == "Fifteen All"
 
 
-# def test_fifteen_love():
-#     game = TennisGame()
-#     game.firstPlayerScore = 1
-#     game.secondPlayerScore = 1
-#     assert game.Score() == "Fifteen Love"
-
-
-# 0-0 Love-All
-# 1-1 Fifteen-All
-# 2-2 Thirty-All
+def test_thirty_love():
+    game = TennisGame()
+    game.firstPlayerScore = 2
+    game.secondPlayerScore = 2
+    assert game.Score() == "Thirty All"
