@@ -1,0 +1,18 @@
+1-0 Fifteen-Love
+2-0 Thirty-Love
+3-0 Forty-Love
+
+0-1 Fifteen-Love
+0-2 Thirty-Love
+0-3 Forty-Love
+
+0-0 Love-All
+1-1 Fifteen-All
+2-2 Thirty-All
+3-3 Deuce
+4-4 Deuce
+
+4-3 Mason Adv
+5-3 Mason Win
+3-4 Rina Adv
+3-5 Rina Win
