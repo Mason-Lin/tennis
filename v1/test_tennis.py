@@ -75,3 +75,10 @@ def test_first_player_adv():
     game.firstPlayerScore = 4
     game.secondPlayerScore = 3
     assert game.Score() == "Mason Adv"
+
+
+def test_second_player_adv():
+    game = TennisGame()
+    game.firstPlayerScore = 3
+    game.secondPlayerScore = 4
+    assert game.Score() == "Rina Adv"
