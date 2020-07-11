@@ -31,10 +31,10 @@ class TennisGame(object):
 
         if self.firstPlayerScore or self.secondPlayerScore:
             if self.firstPlayerScore == self.secondPlayerScore:
-                # if self.firstPlayerScore > 3:
-                #     return "Deuce"
-                # else:
-                return f"{score_lookup[str(self.firstPlayerScore)]} All"
+                if self.firstPlayerScore > 2:
+                    return "Deuce"
+                else:
+                    return f"{score_lookup[str(self.firstPlayerScore)]} All"
             return f"{score_lookup[str(self.firstPlayerScore)]} {score_lookup[str(self.secondPlayerScore)]}"
         else:
             return "Love All"
