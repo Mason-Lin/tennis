@@ -9,23 +9,20 @@ def test_Love_All():
 
 def test_fifteen_love():
     game = TennisGame()
-    game.FirstPlayerScore()
+    game.firstPlayerScore = 1
     score = game.Score()
     assert score == "Fifteen Love"
 
 
 def test_thirty_love():
     game = TennisGame()
-    game.FirstPlayerScore()
-    game.FirstPlayerScore()
+    game.firstPlayerScore = 2
     score = game.Score()
     assert score == "Thirty Love"
 
 
 def test_forty_love():
     game = TennisGame()
-    game.FirstPlayerScore()
-    game.FirstPlayerScore()
-    game.FirstPlayerScore()
+    game.firstPlayerScore = 3
     score = game.Score()
     assert score == "Forty Love"
