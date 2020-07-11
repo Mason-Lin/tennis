@@ -2,7 +2,7 @@ class TennisGame(object):
     _firstPlayerScoreTimes = 0
 
     def Score(self):
-        if _firstPlayerScoreTimes:
+        if self._firstPlayerScoreTimes:
             return "Fifteen Love"
         return "Love All"
 
