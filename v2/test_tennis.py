@@ -60,6 +60,13 @@ def test_fifteen_all():
     game.second_player_score = 1
     assert "Fifteen-All" == game.score()
 
+def test_thirty_all():
+    game = TennisGame()
+    game.first_player_score = 2
+    game.second_player_score = 2
+    assert "Thirty-All" == game.score()
+
+
 # 1-1 Fifteen-All
 # 2-2 Thirty-All
 # 3-3 Deuce
