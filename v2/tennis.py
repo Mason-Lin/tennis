@@ -41,7 +41,8 @@ class TennisGame():
             return f"{self.first_player_name} Win"
         elif self.first_player_score == 3 and self.second_player_score == 4:
             return f"{self.second_player_name} Adv"
-
+        elif self.first_player_score == 3 and self.second_player_score == 5:
+            return f"{self.second_player_name} Win"
 
         if self.first_player_score in (1, 2, 3) or self.second_player_score in (1, 2, 3):
 
