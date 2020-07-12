@@ -29,6 +29,9 @@ class TennisGame():
         }
 
         if self.first_player_score == self.second_player_score:
+            if self.first_player_score == 3:
+                return "Deuce"
+                
             return f"{score_lookup[str(self.first_player_score)]}-All"
 
         if self.first_player_score in (1, 2, 3) or self.second_player_score in (1, 2, 3):
