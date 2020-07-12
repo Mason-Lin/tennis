@@ -26,6 +26,12 @@ def test_forty_love():
     assert "Forty-Love" == game.score()
 
 
+def test_thirty_love():
+    game = TennisGame()
+    game.second_player_score = 2
+    assert "Love-Thirty" == game.score()
+
+
 def test_love_forty():
     game = TennisGame()
     game.second_player_score = 3
@@ -35,4 +41,3 @@ def test_love_forty():
 
 # 0-1 Love-Fifteen
 # 0-2 Love-Thirty
-# 0-3 Love-Forty
