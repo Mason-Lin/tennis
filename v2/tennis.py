@@ -37,6 +37,8 @@ class TennisGame():
         # diff
         if self.first_player_score == 4 and self.second_player_score == 3:
             return f"{self.first_player_name} Adv"
+        elif self.first_player_score == 5 and self.second_player_score == 3:
+            return f"{self.first_player_name} Win"
         elif self.first_player_score == 3 and self.second_player_score == 4:
             return f"{self.second_player_name} Adv"
 
