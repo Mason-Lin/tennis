@@ -76,3 +76,11 @@ def test_deuce():
     game.first_player_score = 4
     game.second_player_score = 4
     assert "Deuce" == game.score()
+
+
+
+
+# 4-3 Mason Adv
+# 5-3 Mason Win
+# 3-4 Rina Adv
+# 3-5 Rina Win
