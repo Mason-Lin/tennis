@@ -31,7 +31,7 @@ class TennisGame():
         if self.first_player_score in (1, 2, 3):
             return f"{score_lookup[str(self.first_player_score)]}-Love"
 
-        if self.second_player_score == 3:
+        if self.second_player_score in (2, 3):
             return f"Love-{score_lookup[str(self.second_player_score)]}"
 
 
