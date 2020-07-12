@@ -78,18 +78,25 @@ def test_deuce():
     assert "Deuce" == game.score()
 
 
-def test_forty_deuce():
+def test_first_adv():
     game = TennisGame("Mason", "Rina")
     game.first_player_score = 4
     game.second_player_score = 3
     assert "Mason Adv" == game.score()
 
 
-def test_forty_deuce():
+def test_second_adv():
     game = TennisGame("Mason", "Rina")
     game.first_player_score = 3
     game.second_player_score = 4
     assert "Rina Adv" == game.score()
+
+
+def test_first_win():
+    game = TennisGame("Mason", "Rina")
+    game.first_player_score = 5
+    game.second_player_score = 3
+    assert "Mason Win" == game.score()
 
 
 # 4-3 Mason Adv
