@@ -13,7 +13,6 @@ def test_fifteen_love():
     assert "Fifteen-Love" == game.score()
 
 
-
 def test_thirty_love():
     game = TennisGame()
     game.first_player_score = 2
@@ -24,7 +23,6 @@ def test_forty_love():
     game = TennisGame()
     game.first_player_score = 3
     assert "Forty-Love" == game.score()
-
 
 
 def test_love_fifteen():
@@ -45,7 +43,6 @@ def test_love_forty():
     assert "Love-Forty" == game.score()
 
 
-
 def test_love_all():
     game = TennisGame()
     game.first_player_score = 0
@@ -53,12 +50,12 @@ def test_love_all():
     assert "Love-All" == game.score()
 
 
-
 def test_fifteen_all():
     game = TennisGame()
     game.first_player_score = 1
     game.second_player_score = 1
     assert "Fifteen-All" == game.score()
+
 
 def test_thirty_all():
     game = TennisGame()
@@ -74,5 +71,8 @@ def test_forty_deuce():
     assert "Deuce" == game.score()
 
 
-# 3-3 Deuce
-# 4-4 Deuce
+def test_deuce():
+    game = TennisGame()
+    game.first_player_score = 4
+    game.second_player_score = 4
+    assert "Deuce" == game.score()
