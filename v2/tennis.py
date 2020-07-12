@@ -20,7 +20,6 @@ class TennisGame():
     def second_player_score(self, score):
         self._second_player_score = score
 
-
     def score(self):
         score_lookup = {
             "0": "Love",
@@ -29,5 +28,5 @@ class TennisGame():
             "3": "Forty"
         }
 
-        if self.first_player_score in (1, 2, 3) or self.second_player_score in (2, 3):
+        if self.first_player_score in (1, 2, 3) or self.second_player_score in (1, 2, 3):
             return f"{score_lookup[str(self.first_player_score)]}-{score_lookup[str(self.second_player_score)]}"
