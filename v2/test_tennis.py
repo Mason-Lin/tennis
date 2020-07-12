@@ -99,7 +99,8 @@ def test_first_win():
     assert "Mason Win" == game.score()
 
 
-# 4-3 Mason Adv
-# 5-3 Mason Win
-# 3-4 Rina Adv
-# 3-5 Rina Win
+def test_second_win():
+    game = TennisGame("Mason", "Rina")
+    game.first_player_score = 3
+    game.second_player_score = 5
+    assert "Rina Win" == game.score()
