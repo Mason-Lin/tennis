@@ -13,7 +13,8 @@ class TennisGame():
             return "Fifteen-Love"
         elif self.first_player_score == 2:
             return "Thirty-Love"
-
+        elif self.first_player_score == 3:
+            return "Forty-Love"
 
 # Forty-Love
 # 
