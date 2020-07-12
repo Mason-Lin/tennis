@@ -67,7 +67,12 @@ def test_thirty_all():
     assert "Thirty-All" == game.score()
 
 
-# 1-1 Fifteen-All
-# 2-2 Thirty-All
+def test_forty_deuce():
+    game = TennisGame()
+    game.first_player_score = 3
+    game.second_player_score = 3
+    assert "Deuce" == game.score()
+
+
 # 3-3 Deuce
 # 4-4 Deuce
