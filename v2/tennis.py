@@ -11,7 +11,9 @@ class TennisGame():
     def score(self):
         if self.first_player_score == 1:
             return "Fifteen-Love"
-        if self.first_player_score == 2:
+        elif self.first_player_score == 2:
             return "Thirty-Love"
 
+
+# Forty-Love
 # 

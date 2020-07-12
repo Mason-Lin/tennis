@@ -14,9 +14,14 @@ def test_fifteen_love():
 
 
 
-def test_fifteen_love():
+def test_thirty_love():
     game = TennisGame()
     game.first_player_score = 2
     assert "Thirty-Love" == game.score()
 
+
+def test_forty_love():
+    game = TennisGame()
+    game.first_player_score = 3
+    assert "Forty-Love" == game.score()
 
