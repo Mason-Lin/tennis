@@ -9,12 +9,13 @@ class TennisGame():
         self._first_player_score = score
 
     def score(self):
-        if self.first_player_score == 1:
-            return "Fifteen-Love"
-        elif self.first_player_score == 2:
-            return "Thirty-Love"
-        elif self.first_player_score == 3:
-            return "Forty-Love"
+        score_lookup = {
+            "1": "Fifteen-Love",
+            "2": "Thirty-Love",
+            "3": "Forty-Love"
+        }
+        if self.first_player_score in (1, 2, 3):
+            return score_lookup[str(self.first_player_score)]
 
 # Forty-Love
-# 
+#
