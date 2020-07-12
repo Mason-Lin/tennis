@@ -35,14 +35,10 @@ class TennisGame():
             return "Deuce" if self.first_player_score in (3, 4) else f"{score_lookup[str(self.first_player_score)]}-All"
 
         # diff
-        if self.first_player_score == 4 and self.second_player_score == 3:
-            return f"{self.first_player_name} Adv"
-        elif self.first_player_score == 5 and self.second_player_score == 3:
-            return f"{self.first_player_name} Win"
-        elif self.first_player_score == 3 and self.second_player_score == 4:
-            return f"{self.second_player_name} Adv"
-        elif self.first_player_score == 3 and self.second_player_score == 5:
-            return f"{self.second_player_name} Win"
+        if (self.first_player_score, self.second_player_score) in [(4, 3), (5, 3), (3, 4), (3, 5)]:
+            adv_status = {"4": "Adv", "5": "Win"}[str(max(self.first_player_score, self.second_player_score))]
+            winner = self.first_player_name if self.first_player_score > self.second_player_score else self.second_player_name
+            return f"{winner} {adv_status}"
 
         if self.first_player_score in (1, 2, 3) or self.second_player_score in (1, 2, 3):
 
