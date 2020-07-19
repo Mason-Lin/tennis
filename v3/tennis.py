@@ -21,16 +21,22 @@ class TennisGame():
         # 4 3 
         if self.same_score():
             if self.ready_to_win():
-                return "Deuce"
+                return self.same_score_adv_result()
             return self.same_score_normal_result()
 
         if self.ready_to_win():
-            return f"{self.get_winner()} {self.get_state()}"
+            return self.diff_score_adv_result()
         else:
             return self.diff_score_normal_result()
     
+    def diff_score_adv_result(self):
+        return f"{self.get_winner()} {self.get_state()}"
+
     def diff_score_normal_result(self):
         return f"{self.score_lookup[str(self._first_player_score)]}-{self.score_lookup[str(self._second_player_score)]}"
+
+    def same_score_adv_result(self):
+        return "Deuce"
 
     def same_score_normal_result(self):
         return f"{self.score_lookup[str(self._first_player_score)]}-All"
