@@ -98,3 +98,16 @@ def test_53(game):
     game.second_player_score()
     game.second_player_score()
     assert game.score() == "Mason Win"
+
+
+
+def test_34(game):
+    game.first_player_score()
+    game.first_player_score()
+    game.first_player_score()
+    game.second_player_score()
+    game.second_player_score()
+    game.second_player_score()
+    game.second_player_score()
+    assert game.score() == "Rina Adv"
+
