@@ -74,3 +74,15 @@ def test_love_44(game):
     game.first_player_score()
     game.second_player_score()
     assert game.score() == "Deuce"
+
+
+
+def test_43(game):
+    game.first_player_score()
+    game.first_player_score()
+    game.first_player_score()
+    game.first_player_score()
+    game.second_player_score()
+    game.second_player_score()
+    game.second_player_score()
+    assert game.score() == "Mason Adv"
