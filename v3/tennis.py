@@ -1,7 +1,9 @@
 class TennisGame():
-    def __init__(self):
+    def __init__(self, name1, name2):
         self._first_player_score = 0
         self._second_player_score = 0
+        self._first_player_name = name1
+        self._second_player_name = name2
 
     def first_player_score(self):
         self._first_player_score += 1
@@ -16,9 +18,14 @@ class TennisGame():
             "2": "Thirty",
             "3": "Forty"
         }
+        # 4 3 
         if self._second_player_score == self._first_player_score:
             if max(self._second_player_score, self._first_player_score) >= 3:
                 return "Deuce"
             return score_lookup[str(self._first_player_score)] + "-All"
         else:
-            return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
+            if min(self._second_player_score, self._first_player_score) >= 3:
+                if self._first_player_score > self._second_player_score:
+                    return self._first_player_name + " Adv"
+            else:
+                return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]

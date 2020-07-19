@@ -5,4 +5,4 @@ import pytest
 
 @pytest.fixture()
 def game():
-    return TennisGame()
+    return TennisGame("Mason", "Rina")
