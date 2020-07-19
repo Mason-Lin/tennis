@@ -17,6 +17,8 @@ class TennisGame():
             "3": "Forty"
         }
         if self._second_player_score == self._first_player_score:
+            if max(self._second_player_score, self._first_player_score) >= 3:
+                return "Deuce"
             return score_lookup[str(self._first_player_score)] + "-All"
         else:
             return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
