@@ -25,8 +25,12 @@ class TennisGame():
             return score_lookup[str(self._first_player_score)] + "-All"
         else:
             if min(self._second_player_score, self._first_player_score) >= 3:
-                winner = self._first_player_name if self._first_player_score > self._second_player_score else self._second_player_name
-                state = "Win" if max(self._second_player_score, self._first_player_score) == 5 else "Adv"
-                return f"{winner} {state}"
+                return f"{self.get_winner()} {self.get_state()}"
             else:
                 return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
+
+    def get_winner(self):
+        return self._first_player_name if self._first_player_score > self._second_player_score else self._second_player_name
+
+    def get_state(self):
+        return "Win" if max(self._second_player_score, self._first_player_score) == 5 else "Adv"
