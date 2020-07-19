@@ -1,8 +1,18 @@
-from .tennis import TennisGame
+from .tennis import TennisGame, Player
 
 import pytest
 
 
 @pytest.fixture()
-def game():
-    return TennisGame("Mason", "Rina")
+def game(player1, player2):
+    return TennisGame(player1, player2)
+
+
+@pytest.fixture()
+def player1():
+    return Player("Mason")
+
+
+@pytest.fixture()
+def player2():
+    return Player("Rina")
