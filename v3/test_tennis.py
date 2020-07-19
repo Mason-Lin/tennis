@@ -41,13 +41,13 @@ def test_love_all(game):
     assert game.score() == "Love-All"
 
 
-def test_love_all(game):
+def test_love_11(game):
     game.first_player_score()
     game.second_player_score()
     assert game.score() == "Fifteen-All"
 
 
-def test_love_all(game):
+def test_love_22(game):
     game.first_player_score()
     game.second_player_score()
     game.first_player_score()
@@ -55,7 +55,18 @@ def test_love_all(game):
     assert game.score() == "Thirty-All"
 
 
-def test_love_all(game):
+def test_love_33(game):
+    game.first_player_score()
+    game.second_player_score()
+    game.first_player_score()
+    game.second_player_score()
+    game.first_player_score()
+    game.second_player_score()
+    assert game.score() == "Deuce"
+
+def test_love_44(game):
+    game.first_player_score()
+    game.second_player_score()
     game.first_player_score()
     game.second_player_score()
     game.first_player_score()
