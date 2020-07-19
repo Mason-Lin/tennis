@@ -39,3 +39,12 @@ def test_love_forty(game):
 
 def test_love_all(game):
     assert game.score() == "Love-All"
+
+
+def test_love_all(game):
+    game.first_player_score()
+    game.second_player_score()
+    assert game.score() == "Fifteen-All"
+
+
+
