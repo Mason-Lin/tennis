@@ -18,9 +18,5 @@ class TennisGame():
         }
         if self._second_player_score == 0 and self._first_player_score == 0:
             return score_lookup[str(self._first_player_score)] + "-All"
-
-        if self._second_player_score == 0:
-            return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
-
-        if self._first_player_score == 0:
+        else:
             return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
