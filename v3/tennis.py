@@ -12,22 +12,31 @@ class TennisGame():
         self._second_player_score += 1
 
     def score(self):
-        score_lookup = {
+        self.score_lookup = {
             "0": "Love",
             "1": "Fifteen",
             "2": "Thirty",
             "3": "Forty"
         }
         # 4 3 
-        if self._second_player_score == self._first_player_score:
-            if max(self._second_player_score, self._first_player_score) >= 3:
+        if self.same_score():
+            if self.ready_to_win():
                 return "Deuce"
-            return score_lookup[str(self._first_player_score)] + "-All"
+            return self.same_score_normal_result()
 
         if self.ready_to_win():
             return f"{self.get_winner()} {self.get_state()}"
         else:
-            return f"{score_lookup[str(self._first_player_score)]}-{score_lookup[str(self._second_player_score)]}"
+            return self.diff_score_normal_result()
+    
+    def diff_score_normal_result(self):
+        return f"{self.score_lookup[str(self._first_player_score)]}-{self.score_lookup[str(self._second_player_score)]}"
+
+    def same_score_normal_result(self):
+        return f"{self.score_lookup[str(self._first_player_score)]}-All"
+
+    def same_score(self):
+        return self._second_player_score == self._first_player_score
 
     def ready_to_win(self):
         return min(self._second_player_score, self._first_player_score) >= 3
