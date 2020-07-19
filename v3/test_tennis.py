@@ -64,6 +64,7 @@ def test_love_33(game):
     game.second_player_score()
     assert game.score() == "Deuce"
 
+
 def test_love_44(game):
     game.first_player_score()
     game.second_player_score()
@@ -74,7 +75,6 @@ def test_love_44(game):
     game.first_player_score()
     game.second_player_score()
     assert game.score() == "Deuce"
-
 
 
 def test_43(game):
@@ -98,4 +98,3 @@ def test_53(game):
     game.second_player_score()
     game.second_player_score()
     assert game.score() == "Mason Win"
-
