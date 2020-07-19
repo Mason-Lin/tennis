@@ -29,5 +29,9 @@ class TennisGame():
                     if self._first_player_score > 4:
                         return self._first_player_name + " Win"
                     return self._first_player_name + " Adv"
+                else:
+                    if self._second_player_score > 4:
+                        return self._second_player_name + " Win"
+                    return self._second_player_name + " Adv"
             else:
                 return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
