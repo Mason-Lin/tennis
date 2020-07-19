@@ -26,3 +26,9 @@ def test_love_thirty(game):
     game.second_player_score()
     game.second_player_score()
     assert game.score() == "Love-Thirty"
+
+def test_love_forty(game):
+    game.second_player_score()
+    game.second_player_score()
+    game.second_player_score()
+    assert game.score() == "Love-Forty"
