@@ -11,12 +11,16 @@ class TennisGame():
 
     def score(self):
         score_lookup = {
+            "0": "Love",
             "1": "Fifteen",
             "2": "Thirty",
             "3": "Forty"
         }
+        if self._second_player_score == 0 and self._first_player_score == 0:
+            return score_lookup[str(self._first_player_score)] + "-All"
+
         if self._second_player_score == 0:
-            return score_lookup[str(self._first_player_score)] + "-Love"
+            return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
 
         if self._first_player_score == 0:
-            return "Love-" + score_lookup[str(self._second_player_score)]
+            return score_lookup[str(self._first_player_score)] + "-" + score_lookup[str(self._second_player_score)]
