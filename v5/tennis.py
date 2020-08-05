@@ -23,16 +23,31 @@ class TennisGame:
             "3": "Forty",
         }
 
+    def is_going_to_win(self):
+        return min(self.player1.get_score(), self.player2.get_score()) >= 3
+
+    def get_status(self):
+        return "Adv"
+
+    def get_winner(self):
+        return "Mason"
+
     def score(self):
         logging.debug(self.player1.get_score)
         if self.player1.get_score() != self.player2.get_score():
-            return "{}-{}".format(
-                self.score_lookup[str(self.player1.get_score())],
-                self.score_lookup[str(self.player2.get_score())],
-            )
+            if self.is_going_to_win():
+                return "{} {}".format(
+                    self.get_winner(),
+                    self.get_status(),
+                )
+            else:
+                return "{}-{}".format(
+                    self.score_lookup[str(self.player1.get_score())],
+                    self.score_lookup[str(self.player2.get_score())],
+                )
         else:
             # self.player1.get_score() == self.player2.get_score():
-            if max(self.player1.get_score(), self.player2.get_score()) >= 3:
+            if self.is_going_to_win():
                 return "Deuce"
             else:
                 return "{}-{}".format(
