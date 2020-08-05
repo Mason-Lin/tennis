@@ -1,7 +1,29 @@
+import logging
 
-class TennisGame():
+class Player:
+    def __init__(self):
+        self.score = 0
+
+    def win_score(self):
+        self.score += 1
+
+    def get_score(self):
+        return self.score
+
+
+class TennisGame:
+    def __init__(self, player1, player2):
+        self.player1 = player1
+        self.player2 = player2
+
     def first_player_get_score(self):
-        pass
+        self.player1.win_score()
 
     def score(self):
-        return "Fifteen-Love"
+        logging.debug(self.player1.get_score)
+        if self.player1.get_score() == 1 and self.player2.get_score() == 0:
+            return "Fifteen-Love"
+        elif self.player1.get_score() == 2 and self.player2.get_score() == 0:
+            return "Thirty-Love"
+        else:
+            return "xxxx"
