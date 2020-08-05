@@ -52,3 +52,10 @@ def test_fifteen_all(game, player1, player2):
     win_multiple_time(player1, 1)
     win_multiple_time(player2, 1)
     assert game.score() == "Fifteen-All"
+
+
+def test_thirty_all(game, player1, player2):
+    win_multiple_time(player1, 2)
+    win_multiple_time(player2, 2)
+    assert game.score() == "Thirty-All"
+
