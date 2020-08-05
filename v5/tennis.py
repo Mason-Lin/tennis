@@ -31,7 +31,7 @@ class TennisGame:
         self.player1 = player1
         self.player2 = player2
 
-    def is_going_to_win(self):
+    def is_ready_to_win(self):
         return min(self.player1.get_score(), self.player2.get_score()) >= 3
 
     def get_winner(self):
@@ -45,16 +45,17 @@ class TennisGame:
         return self.player1.get_score() == self.player2.get_score()
 
     def score(self):
-        logging.debug(self.player1.get_score)
-        if self.is_same_score():
-            if self.is_going_to_win():
+        same_score = self.is_same_score()
+        ready_to_win = self.is_ready_to_win()
+        if same_score:
+            if ready_to_win:
                 return "Deuce"
             else:
                 return "{}-{}".format(
                     SCORE_LOOKUP(self.player1.get_score()).name, "All"
                 )
         else:
-            if self.is_going_to_win():
+            if ready_to_win:
                 winner = self.get_winner()
                 return "{} {}".format(
                     winner.get_name(), SCORE_LOOKUP(winner.get_score()).name,
