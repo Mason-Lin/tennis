@@ -6,91 +6,27 @@ def win_multiple_time(who, times):
         who.win_score()
 
 
-def test_fifteen_love(game, player1, player2):
-    win_multiple_time(player1, 1)
-    win_multiple_time(player2, 0)
-    assert game.score() == "Fifteen-Love"
-
-
-def test_thirty_love(game, player1, player2):
-    win_multiple_time(player1, 2)
-    win_multiple_time(player2, 0)
-    assert game.score() == "Thirty-Love"
-
-
-def test_forty_love(game, player1, player2):
-    win_multiple_time(player1, 3)
-    win_multiple_time(player2, 0)
-    assert game.score() == "Forty-Love"
-
-
-def test_love_fifteen(game, player1, player2):
-    win_multiple_time(player1, 0)
-    win_multiple_time(player2, 1)
-    assert game.score() == "Love-Fifteen"
-
-
-def test_love_thirty(game, player1, player2):
-    win_multiple_time(player1, 0)
-    win_multiple_time(player2, 2)
-    assert game.score() == "Love-Thirty"
-
-
-def test_love_forty(game, player1, player2):
-    win_multiple_time(player1, 0)
-    win_multiple_time(player2, 3)
-    assert game.score() == "Love-Forty"
-
-
-def test_love_all(game, player1, player2):
-    win_multiple_time(player1, 0)
-    win_multiple_time(player2, 0)
-    assert game.score() == "Love-All"
-
-
-def test_fifteen_all(game, player1, player2):
-    win_multiple_time(player1, 1)
-    win_multiple_time(player2, 1)
-    assert game.score() == "Fifteen-All"
-
-
-def test_thirty_all(game, player1, player2):
-    win_multiple_time(player1, 2)
-    win_multiple_time(player2, 2)
-    assert game.score() == "Thirty-All"
-
-
-def test_deuce_33(game, player1, player2):
-    win_multiple_time(player1, 3)
-    win_multiple_time(player2, 3)
-    assert game.score() == "Deuce"
-
-
-def test_deuce_44(game, player1, player2):
-    win_multiple_time(player1, 4)
-    win_multiple_time(player2, 4)
-    assert game.score() == "Deuce"
-
-
-def test_mason_adv(game, player1, player2):
-    win_multiple_time(player1, 4)
-    win_multiple_time(player2, 3)
-    assert game.score() == "Mason Adv"
-
-
-def test_mason_win(game, player1, player2):
-    win_multiple_time(player1, 5)
-    win_multiple_time(player2, 3)
-    assert game.score() == "Mason Win"
-
-
-def test_rina_adv(game, player1, player2):
-    win_multiple_time(player1, 3)
-    win_multiple_time(player2, 4)
-    assert game.score() == "Rina Adv"
-
-
-def test_rina_win(game, player1, player2):
-    win_multiple_time(player1, 3)
-    win_multiple_time(player2, 5)
-    assert game.score() == "Rina Win"
+@pytest.mark.parametrize(
+    "score1, score2, result",
+    [
+        (1, 0, "Fifteen-Love"),
+        (2, 0, "Thirty-Love"),
+        (3, 0, "Forty-Love"),
+        (0, 1, "Love-Fifteen"),
+        (0, 2, "Love-Thirty"),
+        (0, 3, "Love-Forty"),
+        (0, 0, "Love-All"),
+        (1, 1, "Fifteen-All"),
+        (2, 2, "Thirty-All"),
+        (3, 3, "Deuce"),
+        (4, 4, "Deuce"),
+        (4, 3, "Mason Adv"),
+        (5, 3, "Mason Win"),
+        (3, 4, "Rina Adv"),
+        (3, 5, "Rina Win"),
+    ],
+)
+def test_score(game, player1, player2, score1, score2, result):
+    win_multiple_time(player1, score1)
+    win_multiple_time(player2, score2)
+    assert game.score() == result
