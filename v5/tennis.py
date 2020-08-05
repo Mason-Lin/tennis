@@ -1,5 +1,4 @@
 import enum
-import logging
 
 
 class Player:
@@ -32,7 +31,10 @@ class TennisGame:
         self.player2 = player2
 
     def is_ready_to_win(self):
-        return min(self.player1.get_score(), self.player2.get_score()) >= 3
+        return (
+            min(self.player1.get_score(), self.player2.get_score())
+            >= SCORE_LOOKUP.Forty.value
+        )
 
     def get_winner(self):
         return (
@@ -65,4 +67,3 @@ class TennisGame:
 
     def score(self):
         return self.get_return_format().format(**self.get_return_metadata())
-
