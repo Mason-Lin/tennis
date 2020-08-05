@@ -9,9 +9,9 @@ def game(player1, player2):
 
 @pytest.fixture
 def player1():
-    return Player()
+    return Player("Mason")
 
 
 @pytest.fixture
 def player2():
-    return Player()
+    return Player("Rina")

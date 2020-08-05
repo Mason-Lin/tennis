@@ -2,7 +2,8 @@ import logging
 
 
 class Player:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.score = 0
 
     def win_score(self):
@@ -11,6 +12,8 @@ class Player:
     def get_score(self):
         return self.score
 
+    def get_name(self):
+        return self.name
 
 class TennisGame:
     def __init__(self, player1, player2):
@@ -30,15 +33,15 @@ class TennisGame:
         return "Adv" if player.get_score() == 4 else "Win"
 
     def get_winner(self):
-        return "Mason"
+        return self.player1 if self.player1.get_score() > self.player2.get_score() else self.player2
 
     def score(self):
         logging.debug(self.player1.get_score)
         if self.player1.get_score() != self.player2.get_score():
             if self.is_going_to_win():
                 return "{} {}".format(
-                    self.get_winner(),
-                    self.get_status(self.player1),
+                    self.get_winner().get_name(),
+                    self.get_status(self.get_winner()),
                 )
             else:
                 return "{}-{}".format(
