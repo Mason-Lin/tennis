@@ -59,3 +59,7 @@ def test_thirty_all(game, player1, player2):
     win_multiple_time(player2, 2)
     assert game.score() == "Thirty-All"
 
+def test_deuce(game, player1, player2):
+    win_multiple_time(player1, 3)
+    win_multiple_time(player2, 3)
+    assert game.score() == "Deuce"
