@@ -44,21 +44,30 @@ class TennisGame:
     def is_same_score(self):
         return self.player1.get_score() == self.player2.get_score()
 
+    def get_return_format(self):
+        return {
+            (0, 0): "{score1}-{score2}",
+            (0, 1): "{winner_name} {score2}",
+            (1, 0): "{score1}-All",
+            (1, 1): "Deuce",
+        }[(self.is_same_score(), self.is_ready_to_win())]
+
     def score(self):
         same_score = self.is_same_score()
         ready_to_win = self.is_ready_to_win()
         winner = self.get_winner()
+        return_format = self.get_return_format()
         return {
             (0, 0): "{}-{}".format(
-                    SCORE_LOOKUP(self.player1.get_score()).name,
-                    SCORE_LOOKUP(self.player2.get_score()).name,
-                ),
+                SCORE_LOOKUP(self.player1.get_score()).name,
+                SCORE_LOOKUP(self.player2.get_score()).name,
+            ),
             (0, 1): "{} {}".format(
-                    winner.get_name(), SCORE_LOOKUP(winner.get_score()).name,
-                ),
+                winner.get_name(), SCORE_LOOKUP(winner.get_score()).name,
+            ),
             (1, 0): "{}-{}".format(
-                    SCORE_LOOKUP(self.player1.get_score()).name, "All"
-                ),
+                SCORE_LOOKUP(self.player1.get_score()).name, "All"
+            ),
             (1, 1): "Deuce",
         }[(same_score, ready_to_win)]
 
