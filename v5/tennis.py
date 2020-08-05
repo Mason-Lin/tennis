@@ -32,7 +32,10 @@ class TennisGame:
             )
         else:
             # self.player1.get_score() == self.player2.get_score():
-            return "{}-{}".format(
-                self.score_lookup[str(self.player1.get_score())],
-                "All",
-            )
+            if max(self.player1.get_score(), self.player2.get_score()) >= 3:
+                return "Deuce"
+            else:
+                return "{}-{}".format(
+                    self.score_lookup[str(self.player1.get_score())],
+                    "All",
+                )
