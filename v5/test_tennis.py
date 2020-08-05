@@ -46,3 +46,9 @@ def test_love_all(game, player1, player2):
     win_multiple_time(player1, 0)
     win_multiple_time(player2, 0)
     assert game.score() == "Love-All"
+
+
+def test_fifteen_all(game, player1, player2):
+    win_multiple_time(player1, 1)
+    win_multiple_time(player2, 1)
+    assert game.score() == "Fifteen-All"
