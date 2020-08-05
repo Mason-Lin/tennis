@@ -31,4 +31,8 @@ class TennisGame:
                 self.score_lookup[str(self.player2.get_score())],
             )
         else:
-            raise NotImplementedError
+            # self.player1.get_score() == self.player2.get_score():
+            return "{}-{}".format(
+                self.score_lookup[str(self.player1.get_score())],
+                "All",
+            )
