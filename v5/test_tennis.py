@@ -22,3 +22,14 @@ def test_thirty_love():
     win_multiple_time(player1, 2)
     win_multiple_time(player2, 0)
     assert game.score() == "Thirty-Love"
+
+
+def test_thirty_love():
+    player1 = Player()
+    player2 = Player()
+    game = TennisGame(player1, player2)
+    win_multiple_time(player1, 3)
+    win_multiple_time(player2, 0)
+    assert game.score() == "Forty-Love"
+
+
