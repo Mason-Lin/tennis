@@ -47,7 +47,7 @@ class TennisGame:
     def get_return_format(self):
         return {
             (0, 0): "{score1}-{score2}",
-            (0, 1): "{winner_name} {score2}",
+            (0, 1): "{winner_name} {winner_score}",
             (1, 0): "{score1}-All",
             (1, 1): "Deuce",
         }[(self.is_same_score(), self.is_ready_to_win())]
@@ -55,19 +55,16 @@ class TennisGame:
     def score(self):
         same_score = self.is_same_score()
         ready_to_win = self.is_ready_to_win()
-        winner = self.get_winner()
         return_format = self.get_return_format()
+        score1 = SCORE_LOOKUP(self.player1.get_score()).name
+        score2 = SCORE_LOOKUP(self.player2.get_score()).name
+        winner = self.get_winner()
+        winner_name = winner.get_name()
+        winner_score = SCORE_LOOKUP(winner.get_score()).name
         return {
-            (0, 0): "{}-{}".format(
-                SCORE_LOOKUP(self.player1.get_score()).name,
-                SCORE_LOOKUP(self.player2.get_score()).name,
-            ),
-            (0, 1): "{} {}".format(
-                winner.get_name(), SCORE_LOOKUP(winner.get_score()).name,
-            ),
-            (1, 0): "{}-{}".format(
-                SCORE_LOOKUP(self.player1.get_score()).name, "All"
-            ),
-            (1, 1): "Deuce",
+            (0, 0): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
+            (0, 1): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
+            (1, 0): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
+            (1, 1): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
         }[(same_score, ready_to_win)]
 
