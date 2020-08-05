@@ -47,21 +47,18 @@ class TennisGame:
     def score(self):
         same_score = self.is_same_score()
         ready_to_win = self.is_ready_to_win()
-        if same_score:
-            if ready_to_win:
-                return "Deuce"
-            else:
-                return "{}-{}".format(
-                    SCORE_LOOKUP(self.player1.get_score()).name, "All"
-                )
-        else:
-            if ready_to_win:
-                winner = self.get_winner()
-                return "{} {}".format(
-                    winner.get_name(), SCORE_LOOKUP(winner.get_score()).name,
-                )
-            else:
-                return "{}-{}".format(
+        winner = self.get_winner()
+        return {
+            (0, 0): "{}-{}".format(
                     SCORE_LOOKUP(self.player1.get_score()).name,
                     SCORE_LOOKUP(self.player2.get_score()).name,
-                )
+                ),
+            (0, 1): "{} {}".format(
+                    winner.get_name(), SCORE_LOOKUP(winner.get_score()).name,
+                ),
+            (1, 0): "{}-{}".format(
+                    SCORE_LOOKUP(self.player1.get_score()).name, "All"
+                ),
+            (1, 1): "Deuce",
+        }[(same_score, ready_to_win)]
+
