@@ -70,3 +70,9 @@ def test_deuce_44(game, player1, player2):
     win_multiple_time(player1, 4)
     win_multiple_time(player2, 4)
     assert game.score() == "Deuce"
+
+
+def test_mason_adv(game, player1, player2):
+    win_multiple_time(player1, 4)
+    win_multiple_time(player2, 3)
+    assert game.score() == "Mason Adv"
