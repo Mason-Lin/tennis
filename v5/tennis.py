@@ -52,19 +52,17 @@ class TennisGame:
             (1, 1): "Deuce",
         }[(self.is_same_score(), self.is_ready_to_win())]
 
-    def score(self):
-        same_score = self.is_same_score()
-        ready_to_win = self.is_ready_to_win()
-        return_format = self.get_return_format()
+    def get_return_metadata(self):
         score1 = SCORE_LOOKUP(self.player1.get_score()).name
         score2 = SCORE_LOOKUP(self.player2.get_score()).name
         winner = self.get_winner()
-        winner_name = winner.get_name()
-        winner_score = SCORE_LOOKUP(winner.get_score()).name
         return {
-            (0, 0): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
-            (0, 1): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
-            (1, 0): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
-            (1, 1): return_format.format(score1=score1, score2=score2, winner_name=winner_name, winner_score=winner_score),
-        }[(same_score, ready_to_win)]
+            "score1": score1,
+            "score2": score2,
+            "winner_name": winner.get_name(),
+            "winner_score": SCORE_LOOKUP(winner.get_score()).name,
+        }
+
+    def score(self):
+        return self.get_return_format().format(**self.get_return_metadata())
 
