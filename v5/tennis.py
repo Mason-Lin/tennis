@@ -26,8 +26,8 @@ class TennisGame:
     def is_going_to_win(self):
         return min(self.player1.get_score(), self.player2.get_score()) >= 3
 
-    def get_status(self):
-        return "Adv"
+    def get_status(self, player):
+        return "Adv" if player.get_score() == 4 else "Win"
 
     def get_winner(self):
         return "Mason"
@@ -38,7 +38,7 @@ class TennisGame:
             if self.is_going_to_win():
                 return "{} {}".format(
                     self.get_winner(),
-                    self.get_status(),
+                    self.get_status(self.player1),
                 )
             else:
                 return "{}-{}".format(
