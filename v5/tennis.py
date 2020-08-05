@@ -39,9 +39,10 @@ class TennisGame:
         logging.debug(self.player1.get_score)
         if self.player1.get_score() != self.player2.get_score():
             if self.is_going_to_win():
+                winner = self.get_winner()
                 return "{} {}".format(
-                    self.get_winner().get_name(),
-                    self.get_status(self.get_winner()),
+                    winner.get_name(),
+                    self.get_status(winner),
                 )
             else:
                 return "{}-{}".format(

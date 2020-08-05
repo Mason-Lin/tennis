@@ -89,3 +89,9 @@ def test_rina_adv(game, player1, player2):
     win_multiple_time(player1, 3)
     win_multiple_time(player2, 4)
     assert game.score() == "Rina Adv"
+
+
+def test_rina_win(game, player1, player2):
+    win_multiple_time(player1, 3)
+    win_multiple_time(player2, 5)
+    assert game.score() == "Rina Win"
