@@ -4,8 +4,7 @@ import pytest
 
 @pytest.fixture
 def game(player1, player2):
-    game = TennisGame(player1, player2)
-    return game
+    return TennisGame(player1, player2)
 
 
 @pytest.fixture

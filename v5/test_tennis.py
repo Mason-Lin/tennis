@@ -1,7 +1,5 @@
 import pytest
 
-from .tennis import TennisGame, Player
-
 
 def win_multiple_time(who, times):
     for _ in range(times):
@@ -30,3 +28,9 @@ def test_love_fifteen(game, player1, player2):
     win_multiple_time(player1, 0)
     win_multiple_time(player2, 1)
     assert game.score() == "Love-Fifteen"
+
+
+def test_love_thirty(game, player1, player2):
+    win_multiple_time(player1, 0)
+    win_multiple_time(player2, 2)
+    assert game.score() == "Love-Thirty"
