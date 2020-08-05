@@ -11,11 +11,17 @@ class Player:
     def get_score(self):
         return self.score
 
+
 class TennisGame:
     def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
-        self.score_lookup = {"0": "Love", "1": "Fifteen", "2": "Thirty", "3": "Forty"}
+        self.score_lookup = {
+            "0": "Love",
+            "1": "Fifteen",
+            "2": "Thirty",
+            "3": "Forty",
+        }
 
     def score(self):
         logging.debug(self.player1.get_score)
