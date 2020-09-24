@@ -1,3 +1,4 @@
+import logging
 import pytest
 
 
@@ -27,6 +28,7 @@ def win_multiple_time(who, times):
     ],
 )
 def test_score(game, player1, player2, score1, score2, result):
+    logging.debug("%s %s %s", score1, score2, result)
     win_multiple_time(player1, score1)
     win_multiple_time(player2, score2)
     assert game.score() == result
