@@ -30,40 +30,41 @@ class TennisGame:
         self.player1 = player1
         self.player2 = player2
 
-    def is_ready_to_win(self):
+    def score_at_least_forty(self):
         return (
             min(self.player1.get_score(), self.player2.get_score())
             >= SCORE_LOOKUP.Forty.value
         )
 
     def get_winner(self):
-        return (
-            self.player1
-            if self.player1.get_score() > self.player2.get_score()
-            else self.player2
-        )
+        if self.player1.get_score() > self.player2.get_score():
+            return self.player1
+        elif self.player1.get_score() < self.player2.get_score():
+            return self.player2
+        else:
+            return None
 
-    def is_same_score(self):
-        return self.player1.get_score() == self.player2.get_score()
-
-    def get_return_format(self):
+    def _get_return_format(self):
         return {
             (0, 0): "{score1}-{score2}",
-            (0, 1): "{winner_name} {winner_score}",
+            (0, 1): "{winner_name} {winner_score_str}",
             (1, 0): "{score1}-All",
             (1, 1): "Deuce",
-        }[(self.is_same_score(), self.is_ready_to_win())]
+        }[(self.get_winner() is None, self.score_at_least_forty())]
 
-    def get_return_metadata(self):
+    def _get_return_metadata(self):
         score1 = SCORE_LOOKUP(self.player1.get_score()).name
         score2 = SCORE_LOOKUP(self.player2.get_score()).name
         winner = self.get_winner()
+        winner_score = (
+            winner.get_score() if winner else self.player1.get_score()
+        )
         return {
             "score1": score1,
             "score2": score2,
-            "winner_name": winner.get_name(),
-            "winner_score": SCORE_LOOKUP(winner.get_score()).name,
+            "winner_name": winner.get_name() if winner else None,
+            "winner_score_str": SCORE_LOOKUP(winner_score).name,
         }
 
     def score(self):
-        return self.get_return_format().format(**self.get_return_metadata())
+        return self._get_return_format().format(**self._get_return_metadata())
