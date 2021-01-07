@@ -2,7 +2,6 @@
 addopts = "-s -v"
 minversion = "6.0"
 testpaths = [
-  "v5",
   "v6"
 ]
 log_cli = 1
